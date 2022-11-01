@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.IOException;
 
 public class App {
     static Scanner scanf = new Scanner(System.in);
@@ -9,7 +10,8 @@ public class App {
         while(true){
             switch(displayMenu()){
                 case 1:
-                    System.out.println("Full Rectangle Shape");
+                    clear();
+                    RectangleShape();
                     break;
                 case 2:
                     System.out.println("Empty Rectangle Shape");
@@ -24,6 +26,7 @@ public class App {
         }
 
     }
+
 
     // Input name
     public static void inputname(){
@@ -52,12 +55,27 @@ public class App {
     // Rectangle Shape
     public static void RectangleShape(){
         int size;
+        char enter;
         do{
             System.out.print("Input Full Rectangle Size [greater than 1] : ");
             size = scanf.nextInt();
         }
-        while(size > 1);
+        while(size < 1);
+
+        for(int i = 0; i < size ; i++){
+            for(int j = 0 ; j < size; j++){
+                System.out.print("*");
+            }
+            System.out.print("\n");
+        }
+
+        System.out.println("\n Hit (ENTER) to back menu ...");
+        enter = scanf.next().charAt(0);
+    }   
+
+    public static void clear(){
+        for(int i = 0; i < 20; i++){
+            System.out.println("\n");
+        }
     }
-
-
 }
