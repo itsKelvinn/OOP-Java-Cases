@@ -23,6 +23,8 @@ public class App {
                     RightTriangleShape();
                     break;
                 case 4:
+                    clear();
+                    exit();
                     System.exit(0);
                     break;
             }
@@ -97,7 +99,6 @@ public class App {
         }
     }
 
-
     // Right Triangle Shape
     public static void RightTriangleShape(){
         int size;
@@ -122,6 +123,11 @@ public class App {
             System.out.println("");
         }
 
+    }
+
+    // Exit Massage
+    public static void exit(){
+        System.out.println("Good bye , see u later :)");
     }
 
     // For clear Console
