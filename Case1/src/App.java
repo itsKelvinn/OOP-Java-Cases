@@ -16,15 +16,15 @@ public class App {
                     RectangleShape();
                     break;
                 case 2:
-                    clear();
+                    cls(args);
                     EmptyRectangleShape();
                     break;
                 case 3:
-                    clear();
+                    cls(args);
                     RightTriangleShape();
                     break;
                 case 4:
-                    clear();
+                    cls(args);
                     exit();
                     System.exit(0);
                     break;
@@ -135,13 +135,6 @@ public class App {
     // Exit Massage
     public static void exit(){
         System.out.println("Good bye , see u later :)");
-    }
-
-    // For clear Console
-    public static void clear(){
-        for(int i = 0; i < 30; i++){
-            System.out.println("");
-        }
     }
 
     public static void cls (String... arg) throws IOException, InterruptedException {
