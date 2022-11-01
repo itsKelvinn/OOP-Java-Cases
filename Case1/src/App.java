@@ -6,9 +6,9 @@ public class App {
     static String nameHolder;
 
     public static void main(String[] args) throws Exception {
-        clear();
+        cls(args);
         inputname();
-        clear();
+        cls(args);
         while(true){
             switch(displayMenu()){
                 case 1:
