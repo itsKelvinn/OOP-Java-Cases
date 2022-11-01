@@ -1,12 +1,13 @@
 import java.util.Scanner;
-import java.io.IOException;
 
 public class App {
     static Scanner scanf = new Scanner(System.in);
     static String nameHolder;
 
     public static void main(String[] args) throws Exception {
+        clear();
         inputname();
+        clear();
         while(true){
             switch(displayMenu()){
                 case 1:
@@ -14,13 +15,15 @@ public class App {
                     RectangleShape();
                     break;
                 case 2:
-                    System.out.println("Empty Rectangle Shape");
+                    clear();
+                    EmptyRectangleShape();
                     break;
                 case 3:
-                    System.out.println("Right Triangle Shape");
+                    clear();
+                    RightTriangleShape();
                     break;
                 case 4:
-                    System.out.println("Exit");
+                    System.exit(0);
                     break;
             }
         }
@@ -40,7 +43,7 @@ public class App {
 
     // Menu Display
     public static Integer displayMenu(){
-        System.out.println("Wellcome " + nameHolder);
+        System.out.println("\n\nWellcome " + nameHolder);
         System.out.println("Shape Printer");
         System.out.println("=============");
         System.out.println("1. Full Rectangle Shape");
@@ -55,7 +58,6 @@ public class App {
     // Rectangle Shape
     public static void RectangleShape(){
         int size;
-        char enter;
         do{
             System.out.print("Input Full Rectangle Size [greater than 1] : ");
             size = scanf.nextInt();
@@ -68,14 +70,64 @@ public class App {
             }
             System.out.print("\n");
         }
+    }
+    
+    // Empty Rectangle Shape
+    public static void EmptyRectangleShape(){
+        int size;
+        do{
+            System.out.print("Input Full Empaty Rectangle Size [greater than 1] : ");
+            size = scanf.nextInt();
+        }
+        while(size < 1);
 
-        System.out.println("\n Hit (ENTER) to back menu ...");
-        enter = scanf.next().charAt(0);
-    }   
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++){
+                if(i == 0 || i == size - 1){
+                    System.out.print("*");
+                }
+                else if(j == 0 || j == size - 1){
+                    System.out.print("*");
+                }
+                else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println("");
+        }
+    }
 
+
+    // Right Triangle Shape
+    public static void RightTriangleShape(){
+        int size;
+        do{
+            System.out.print("Input Full Empaty Right Triangle Shape Size [greater than 1] : ");
+            size = scanf.nextInt();
+        }
+        while(size < 1);
+
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j <= i; j++){
+                if(i == 1 || i == 0 || i == size-1){
+                    System.out.print("*");
+                }
+                else if( j == 0 || j == i){
+                    System.out.print("*");
+                }
+                else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println("");
+        }
+
+    }
+
+    // For clear Console
     public static void clear(){
-        for(int i = 0; i < 20; i++){
-            System.out.println("\n");
+        for(int i = 0; i < 30; i++){
+            System.out.println("");
         }
     }
 }
