@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
@@ -11,7 +12,7 @@ public class App {
         while(true){
             switch(displayMenu()){
                 case 1:
-                    clear();
+                    cls(args);
                     RectangleShape();
                     break;
                 case 2:
@@ -66,6 +67,8 @@ public class App {
         }
         while(size < 1);
 
+        System.out.println("");
+
         for(int i = 0; i < size ; i++){
             for(int j = 0 ; j < size; j++){
                 System.out.print("*");
@@ -82,6 +85,8 @@ public class App {
             size = scanf.nextInt();
         }
         while(size < 1);
+        
+        System.out.println("");
 
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
@@ -107,6 +112,8 @@ public class App {
             size = scanf.nextInt();
         }
         while(size < 1);
+
+        System.out.println("");
 
         for(int i = 0; i < size; i++){
             for(int j = 0; j <= i; j++){
@@ -135,5 +142,9 @@ public class App {
         for(int i = 0; i < 30; i++){
             System.out.println("");
         }
+    }
+
+    public static void cls (String... arg) throws IOException, InterruptedException {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
     }
 }
