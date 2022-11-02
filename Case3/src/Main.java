@@ -25,16 +25,6 @@ public class  Main{
 
     public static void main (String[] args) throws Exception{
 
-        footwear foot1 = new footwear("Kelvin",2000,"Heels",2.1f,"-");
-        footwear foot2 = new footwear("Alvi",20,"Heels",2.1f,"-");
-        footwear foot3 = new footwear("Ong",300,"Heels",2.1f,"-");
-        footwear foot4 = new footwear("gog",40,"Heels",2.1f,"-");
-        
-        cons.add(foot1);
-        cons.add(foot2);
-        cons.add(foot3);
-        cons.add(foot4);
-
         while(true){
             displayMenu();
             int op = scanf.nextInt();
@@ -59,6 +49,7 @@ public class  Main{
                     break;
                 case 5:
                     cls(args);
+                    exit();
                     System.exit(0);
                     break;
             }
@@ -138,7 +129,7 @@ public class  Main{
             System.out.println("+=====================================================================+");
             
             for(int i = 0; i < cons.size(); i++){
-                System.out.printf("| %2d | %-25s | %-8d | %-8.2f | %-12s |\n",i+1,cons.get(i).name,cons.get(i).price,cons.get(i).height,cons.get(i).totalWheel);
+                System.out.printf("| %2d | %-25s | %-8d | %-8.1f | %-12s |\n",i+1,cons.get(i).name,cons.get(i).price,cons.get(i).height,cons.get(i).totalWheel);
             }
             
             System.out.println("+=====================================================================+");
@@ -178,13 +169,13 @@ public class  Main{
             while(price > 10000);
 
             do{
-                System.out.println("Footwear height [1.0 - 9.0] : ");
+                System.out.print("Footwear height [1.0 - 9.0] : ");
                 height = scanf.nextFloat();
                 scanf.nextLine();
             }
             while(height < 1.0 || height > 9.0);
 
-            if(cons.get(pos).type.compareTo("RollerSkate") == 0){
+            if(cons.get(pos-1).type.compareTo("RollerSkate") == 0){
                 do{
                     System.out.print("Footwear total wheel [2 -4 inclusice] : ");
                     totalWheel = scanf.nextLine();
@@ -199,6 +190,8 @@ public class  Main{
             cons.get(pos).price = price;
             cons.get(pos).height = height;
             cons.get(pos).totalWheel = totalWheel;
+
+            System.out.println("\nFootwear updated successfully !!");
         }
     }
 
@@ -236,5 +229,10 @@ public class  Main{
     // Clear console
     public static void cls (String... arg) throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+    }
+
+    // exti massage
+    static void exit(){
+        System.out.println("Thanks for using just do it program !");
     }
 }
