@@ -148,6 +148,7 @@ public class  Main{
             System.out.println("There are no footwear to update !");
         }
         else{
+            view();
             do{
                 System.out.print("Input footwear index to update : ");
                 pos = scanf.nextInt();
@@ -202,6 +203,7 @@ public class  Main{
             System.out.println("There are no footwear to delete !");
         }
         else{
+            view();
             do{
                 System.out.print("Input footwear index to delete : ");
                 pos = scanf.nextInt();
