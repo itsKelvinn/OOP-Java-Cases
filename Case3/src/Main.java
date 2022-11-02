@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
+
 class footwear{
 
     String name;
@@ -14,8 +15,7 @@ class footwear{
         this.price = price;
         this.type = type;
         this.height = height;
-        this.totalWheel = totalWheel;
-    
+        this.totalWheel = totalWheel;   
     }
 }
 
@@ -38,6 +38,7 @@ public class  Main{
         while(true){
             displayMenu();
             int op = scanf.nextInt();
+            scanf.nextLine();
 
             switch(op){
                 case 1:
@@ -61,6 +62,9 @@ public class  Main{
                     System.exit(0);
                     break;
             }
+            System.out.println("\nPress enter to continue .. ");
+            scanf.nextLine();
+            cls(args);
         }
     }
 
@@ -83,15 +87,21 @@ public class  Main{
         do{
             System.out.print("Footwear price [more than 10000] : ");
             price = scanf.nextInt();
+            scanf.nextLine();
         }
         while(price > 10000);
 
         // Input Type
+        int flag = 0;
         do{
             System.out.print("Foot type [Heels / RollerSkate] : ");
             type = scanf.nextLine();
+
+            if(type.compareTo("Heels") == 0 || type.compareTo("RollerSkate") == 0){
+                flag = 1;
+            }
         }
-        while(type.compareTo("Heels") != 0 || type.compareTo("RollerSkate") != 0);
+        while(flag == 0);
 
         if(type.compareTo("RollerSkate") == 0){
             do{
@@ -106,6 +116,7 @@ public class  Main{
         do{
             System.out.print("Footwear Height [1.0 - 9.0] : ");
             height = scanf.nextFloat();
+            scanf.nextLine();
         }
         while(height < 1.0 || height > 9.0);
 
@@ -125,9 +136,11 @@ public class  Main{
             System.out.println("+=====================================================================+");
             System.out.println("| No | Name                      | Price    | Height   | Total Wheels |");
             System.out.println("+=====================================================================+");
+            
             for(int i = 0; i < cons.size(); i++){
                 System.out.printf("| %2d | %-25s | %-8d | %-8.2f | %-12s |\n",i+1,cons.get(i).name,cons.get(i).price,cons.get(i).height,cons.get(i).totalWheel);
             }
+            
             System.out.println("+=====================================================================+");
         }
     }
@@ -147,6 +160,7 @@ public class  Main{
             do{
                 System.out.print("Input footwear index to update : ");
                 pos = scanf.nextInt();
+                scanf.nextLine();
             }
             while(pos > cons.size() || pos < 0);
 
@@ -159,12 +173,14 @@ public class  Main{
             do{
                 System.out.print("Footwear price [more than 10000] : ");
                 price = scanf.nextInt();
+                scanf.nextLine();
             }
             while(price > 10000);
 
             do{
                 System.out.println("Footwear height [1.0 - 9.0] : ");
                 height = scanf.nextFloat();
+                scanf.nextLine();
             }
             while(height < 1.0 || height > 9.0);
 
@@ -196,6 +212,7 @@ public class  Main{
             do{
                 System.out.print("Input footwear index to delete : ");
                 pos = scanf.nextInt();
+                scanf.nextLine();
             }
             while(pos < 0 || pos > cons.size());
 
