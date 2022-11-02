@@ -7,9 +7,9 @@ class footwear{
     int price;
     String type;
     float height;
-    int totalWheel;
+    String totalWheel = "-";
     
-    footwear(String name,int price,String type,Float height,int totalWheel){
+    footwear(String name,int price,String type,Float height,String totalWheel){
         this.name = name;
         this.price = price;
         this.type = type;
@@ -25,9 +25,15 @@ public class  Main{
 
     public static void main (String[] args) throws Exception{
 
-        if(cons == null){
-            System.out.println("tets");
-        }
+        footwear foot1 = new footwear("Kelvin",2000,"Heels",2.1f,"-");
+        footwear foot2 = new footwear("Alvi",20,"Heels",2.1f,"-");
+        footwear foot3 = new footwear("Ong",300,"Heels",2.1f,"-");
+        footwear foot4 = new footwear("gog",40,"Heels",2.1f,"-");
+        
+        cons.add(foot1);
+        cons.add(foot2);
+        cons.add(foot3);
+        cons.add(foot4);
 
         while(true){
             displayMenu();
@@ -39,14 +45,19 @@ public class  Main{
                     insert();
                     break;
                 case 2:
-                    System.out.println("opp2");
+                    cls(args);
+                    view();
                     break;
                 case 3:
+                    cls(args);
                     update();
                     break;
                 case 4:
+                    cls(args);
+                    delete();    
                     break;
                 case 5:
+                    cls(args);
                     System.exit(0);
                     break;
             }
@@ -59,7 +70,7 @@ public class  Main{
         int price;
         String type;
         float height;
-        int totalWheel = 0;
+        String totalWheel = "-";
         
         // Input name
         do{
@@ -85,9 +96,10 @@ public class  Main{
         if(type.compareTo("RollerSkate") == 0){
             do{
                 System.out.print("Footwear total wheel [2 - 4 inclusive] : ");
-                totalWheel = scanf.nextInt();
+                totalWheel = scanf.nextLine();
             }
-            while(totalWheel < 2 || totalWheel > 4);
+            while(Integer.parseInt(totalWheel) < 2 || Integer.parseInt(totalWheel) > 4);
+            totalWheel = totalWheel + " Wheels";
         }
 
         // Input Footwear
@@ -104,13 +116,29 @@ public class  Main{
 
     }
 
+    // View
+    public static void view(){
+        if(cons.isEmpty() == true){
+            System.out.println("There are no footwears to display !");
+        }
+        else{
+            System.out.println("+=====================================================================+");
+            System.out.println("| No | Name                      | Price    | Height   | Total Wheels |");
+            System.out.println("+=====================================================================+");
+            for(int i = 0; i < cons.size(); i++){
+                System.out.printf("| %2d | %-25s | %-8d | %-8.2f | %-12s |\n",i+1,cons.get(i).name,cons.get(i).price,cons.get(i).height,cons.get(i).totalWheel);
+            }
+            System.out.println("+=====================================================================+");
+        }
+    }
+
     // update 
     public static void update(){
         int pos;
         String name;
         int price;
         float height;
-        int totalWheel = 0;
+        String totalWheel = "-";
 
         if(cons.isEmpty() == true){
             System.out.println("There are no footwear to update !");
@@ -143,15 +171,36 @@ public class  Main{
             if(cons.get(pos).type.compareTo("RollerSkate") == 0){
                 do{
                     System.out.print("Footwear total wheel [2 -4 inclusice] : ");
-                    totalWheel = scanf.nextInt();
+                    totalWheel = scanf.nextLine();
                 }
-                while(totalWheel < 2 || totalWheel > 4);
+                while(Integer.parseInt(totalWheel) < 2 || Integer.parseInt(totalWheel) > 4);
+                totalWheel = totalWheel + " Wheels";
             }
             
+            // Update data
+            pos = pos - 1;
             cons.get(pos).name = name;
             cons.get(pos).price = price;
             cons.get(pos).height = height;
             cons.get(pos).totalWheel = totalWheel;
+        }
+    }
+
+    // Delete
+    public static void delete(){
+        int pos;
+        if(cons.isEmpty() == true){
+            System.out.println("There are no footwear to delete !");
+        }
+        else{
+            do{
+                System.out.print("Input footwear index to delete : ");
+                pos = scanf.nextInt();
+            }
+            while(pos < 0 || pos > cons.size());
+
+            cons.remove(pos-1);
+            System.out.println("Footwear deleted successfully !!");
         }
     }
 
