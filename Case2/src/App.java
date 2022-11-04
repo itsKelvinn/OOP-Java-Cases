@@ -35,13 +35,13 @@ class student{
     public void setData(float gpa){
         this.gpa.add(gpa);
     }
-
 }
 
 public class App {
 
     static Scanner scanf = new Scanner(System.in);
     static student newStudent;
+    
     public static void main(String[] args) throws Exception {
         insertData();
         cls(args);

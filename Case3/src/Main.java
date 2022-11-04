@@ -3,7 +3,6 @@ import java.util.Scanner;
 import java.util.Vector;
 
 class footwear{
-
     String name;
     int price;
     String type;
@@ -24,7 +23,6 @@ public class  Main{
     static Vector<footwear> cons = new Vector<>();
 
     public static void main (String[] args) throws Exception{
-
         while(true){
             displayMenu();
             int op = scanf.nextInt();

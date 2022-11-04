@@ -120,22 +120,21 @@ public class Main {
             }
         }
 
-        if(flag == 0){
+        if(flag == 1){
             System.out.println("successfully updated !");
         }
         else{
             System.out.println("Data nga ketemu !");
         }
-
-        System.out.println("Press (ENTER) back to menu .. ");
-        scanf.nextLine();
     }
 
     // Pembatanlan pembelian
     public static void cancle(){
         view();
-
+        
+        System.out.print("Masukan id yang ingin di cancel : ");
         String searchId = scanf.nextLine();
+
         int flag = 0;
         for(int i = 0; i < newCustomer.size(); i++){
             if(newCustomer.get(i).id.compareTo(searchId) == 0 ){
@@ -150,9 +149,6 @@ public class Main {
         else{
             System.out.println("Data nga ketemu buat di delete !");
         }
-
-        System.out.println("Press (ENTER) back to menu .. ");
-        scanf.nextLine();
     }
 
     //  Laporan pembelian
