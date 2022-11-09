@@ -87,8 +87,7 @@ public class Main {
         System.out.println("Status payment : " + status);        
 
         // ini masukin ke node Vector
-        customer customer = new customer(name, gender, jumlahTiket, sumPayment, status,id);
-        newCustomer.add(customer);
+        newCustomer.add(new customer(name, gender, jumlahTiket, sumPayment, status,id));
     }
 
 
