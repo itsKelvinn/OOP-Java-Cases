@@ -19,20 +19,6 @@ class gold{
     gold(int x , int y){
         this.x = x;
         this.y = y;
-        checkPos(x,y);
-    }
-
-    void checkPos(int x,int y){
-        if(x == 1 && y == 1){
-            this.x = this.x + 1;
-            this.y = this.y + 1;
-        }
-        else if(x == 0){
-            this.x = this.x + 1;
-        }
-        else if(y == 0){
-            this.y = this.y + 1;
-        }
     }
 
 }
@@ -48,7 +34,7 @@ public class Main {
 
     public static void goldSpawns(){
         for(int i = 0; i < 5; i++){
-            gold g = new gold(random.nextInt(9),random.nextInt(9));
+            gold g = new gold((int)(1 + Math.random() * 8),(int)(1 + Math.random() * 8));
             golds.add(g);
         }
     }
@@ -58,12 +44,15 @@ public class Main {
         goldSpawns();
         while(true){
             cls(args);
+            goldRemaining();
             display();
             kontol();
         }
     }
 
-
+    public static void goldRemaining(){
+        System.out.println("Gold remain " + golds.size());
+    }
     public static void display(){
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
